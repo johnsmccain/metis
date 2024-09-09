@@ -19,6 +19,7 @@ contract YourContract {
 	bool public premium = false;
 	uint256 public totalCounter = 0;
 	mapping(address => uint) public userGreetingCounter;
+	mapping(address => uint) public userNumbers;
 
 	// Events: a way to emit log statements from smart contract that can be listened to by external parties
 	event GreetingChange(
@@ -27,6 +28,7 @@ contract YourContract {
 		bool premium,
 		uint256 value
 	);
+	event NumberUpdated(address indexed user, uint number);
 
 	// Constructor: Called once on contract deployment
 	// Check packages/hardhat/deploy/00_deploy_your_contract.ts
@@ -40,6 +42,13 @@ contract YourContract {
 		// msg.sender: predefined variable that represents address of the account that called the current function
 		require(msg.sender == owner, "Not the Owner");
 		_;
+	}
+
+	/**
+	 * Function that allows users to store numbers
+	 */
+	function storeNumber(uint _number) public {
+		userNumbers[msg.sender] = _number;
 	}
 
 	/**

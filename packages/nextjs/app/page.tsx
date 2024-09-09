@@ -17,6 +17,7 @@ const Home: NextPage = () => {
             <span className="block text-2xl mb-2">Welcome to</span>
             <span className="block text-4xl font-bold">Scaffold-ETH 2</span>
           </h1>
+
           <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row">
             <p className="my-2 font-medium">Connected Address:</p>
             <Address address={connectedAddress} />
@@ -36,6 +37,9 @@ const Home: NextPage = () => {
             <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
               packages/hardhat/contracts
             </code>
+          </p>
+          <p className="text-center text-lg mt-4">
+            <strong style={{ fontSize: "36px", color: "#04D1FF" }}>DEPLOY ON METIS</strong>
           </p>
         </div>
 
